@@ -1,1 +1,1 @@
-# SimplerAI
+# AI
