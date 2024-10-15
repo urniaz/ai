@@ -1,0 +1,25 @@
+Package: ai
+Title: Build, Predict and Analyse Artificial Intelligence Models
+Version: 1.0.4.44
+Authors@R: 
+    person("Rafal", "Urniaz", , "rafal.urniaz@cantab.net", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-0192-2165"))
+Description: An interface for data processing, building models, predicting values and analysing outcomes. Fitting Linear Models, Robust Fitting of Linear Models, k-Nearest Neighbor Classification, 1-Nearest Neighbor Classification, and Conditional Inference Trees are available.
+Depends: R (>= 4.4.0)
+License: GPL-3
+Encoding: UTF-8
+URL: https://github.com/urniaz/ai
+BugReports: https://github.com/urniaz/ai/issues
+LazyData: true
+biocViews: Software
+Imports: base,
+         class, 
+         stats,
+         caTools,
+         MASS,
+         party,
+         Metrics
+Suggests: 
+    testthat (>= 3.0.0)
+RoxygenNote: 7.3.2
+Config/testthat/edition: 3

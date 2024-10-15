@@ -1,0 +1,47 @@
+---
+title: "R Notebook"
+output: none
+---
+
+```{r}
+library("ai")
+
+  submat <- c('BLOSUM45', 'BLOSUM50', 'BLOSUM62', 'BLOSUM80', 'BLOSUM100', 'PAM30', 'PAM40', 'PAM70', 'PAM120', 'PAM250')
+  sheet_sup4 <- c("Van Allen et al.", "Snyder et al.", "Rizvi et al.")
+  a <- 1
+
+  # Load data
+    input_data <- read.csv2(paste0("/Users/urniaz/Desktop/kmeRs/Paper/data_new/", sheet_sup4[a],'csv'))
+    input_data <- input_data[ ,c(-1, -2, -3, -5, -6)]
+    input_data <- data.frame(apply(input_data[, ], 2, function(x) as.numeric(as.character(x))))
+
+  # Collect stats
+  res_frame <- data.frame(matrix(ncol = 5, nrow = 0))
+  
+for (i in 1:1) { # How much tests run?
+  # Data
+    data <- ai::prodata(input_data, "Status") # <- n randomizacji tutaj i na tcyh samych zbirach danych puscici wszytskie modele i kombinacje z PAM i BLOSUM 
+    
+  # Model A <- tylko raz
+    config <- ai::config(formula = "Status ~ A + R", k = 3)
+    A <- ai::model(data = data, type = c("lm", "rlm", "knn", "knn1", "ctree"), config = config)
+    
+# For (e in 1:length (submat)) !!!!
+    
+   # Model B <- wiele razy bo kombinacje pam blisum 
+    config <- ai::config(formula = "Status ~ A + R", k = 3)
+    B <- ai::model(data = data, type = c("lm", "rlm", "knn", "knn1", "ctree"), config = config)
+    
+  # Stats
+    A <- ai::stats_model(A)
+    B <- ai::stats_model(B)
+    
+  # Compare
+  st <- ai::stats_compare_models(A, B)
+  
+  # Collect results
+  res_frame <- rbind(res_frame, data.frame(loop = i, st))
+   
+}
+```
+
