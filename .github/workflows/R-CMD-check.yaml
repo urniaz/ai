@@ -9,7 +9,6 @@ on:
 jobs:
   R-CMD-check:
     runs-on: ${{ matrix.config.os }}
-
     name: ${{ matrix.config.os }} (R ${{ matrix.config.r }})
 
     strategy:
@@ -17,8 +16,8 @@ jobs:
       matrix:
         config:
           - {os: ubuntu-latest, r: 'release'}
+          - {os: macos-latest,  r: 'release'}
           - {os: windows-latest, r: 'release'}
-          - {os: macos-latest, r: 'release'}
 
     steps:
       - uses: actions/checkout@v4
@@ -27,6 +26,15 @@ jobs:
         with:
           r-version: ${{ matrix.config.r }}
 
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          # Dodaj tu pakiety z CRAN/Bioc potrzebne do checka lub winiet
+          extra-packages: |
+            any::rcmdcheck
+            any::BiocManager
+          needs: check
+
       - uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
+          
