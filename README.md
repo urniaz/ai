@@ -1,5 +1,5 @@
 ![](https://img.shields.io/badge/%20Bioconductor%20BiocCheck-true-green.svg)  [![Codacy Badge](https://app.codacy.com/project/badge/Grade/4a0eed35e8e542ec83aaf5cb6c80b1b1)](https://app.codacy.com/gh/urniaz/ai/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade) [![Circle CI Badge](https://img.shields.io/badge/build-passing-brightgreen?style=flat&label=circleci)](https://app.circleci.com/pipelines/github/urniaz?circle-token=79db963de7c13c1570f70cb8ac1c77a5) [![R-CMD-check](https://github.com/urniaz/ai/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/urniaz/ai/actions/workflows/R-CMD-check.yaml) ![CRAN/METACRAN License](https://img.shields.io/cran/l/ai)  ![CRAN/METACRAN Version](https://img.shields.io/cran/v/ai) ![CRAN/METACRAN Total downloads](https://cranlogs.r-pkg.org/badges/grand-total/ai)
-
+ 
 **Rafal Urniaz, PhD** [![ORCID](https://img.shields.io/badge/ORCID-0000--0003--0192--2165-A6CE39?logo=orcid&logoColor=FFFFFF)](https://orcid.org/0000-0003-0192-2165) 
 
 An interface for data processing, building models, predicting values and analysing outcomes. Fitting Linear Models, Robust Fitting of Linear Models, k-Nearest Neighbor Classification, 1-Nearest Neighbor Classification, and Conditional Inference Trees are available.
